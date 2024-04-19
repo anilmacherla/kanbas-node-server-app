@@ -22,17 +22,12 @@ export default function CourseRoutes(app) {
     app.put("/api/courses/:id", async (req, res) => {
         const { id } = req.params;
         const course = req.body;
-        // Database.courses = Database.courses.map((c) =>
-        //     c._id === id ? { ...c, ...course } : c
-        // );
         await dao.updateCourse(id, course);
         res.sendStatus(204);
     });
 
     app.get("/api/courses/:id", async (req, res) => {
         const { id } = req.params;
-        // const course = Database.courses
-        //     .find((c) => c._id === id);
         const course = await dao.findCourseById(id);
         if (!course) {
             res.status(404).json("Course not found");
