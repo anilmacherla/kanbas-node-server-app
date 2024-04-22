@@ -55,9 +55,12 @@ const quizzesSchema = new mongoose.Schema({
         allowMultipleAttempts: { type: Boolean, default: false },
     },
     queAndAns: [{
-        question: { type: String, default: "" },
+        questionTitle: {type: String, default: ""},
+        questionContent: { type: String, default: "" },
         answers: [{ type: String, default: "" }],
-        correctAnswerIndex: { type: Number, default: null }
+        questionType: {type:String, default: ""},
+        blanks: [{ type: String, default: "" }],
+        points: {type: String}
     }]
 }, { collection: "quizzes" });
 

@@ -6,11 +6,16 @@ export const createQuiz = (quiz) => {
 }
 
 export const updateQuiz = (id, quiz) => {
+    console.log(quiz);
     return quizzesModel.updateOne({ _id: id }, { $set: quiz });
 }
 
 export const deleteQuiz = (id) => {
     return quizzesModel.deleteOne({ _id: id });
+}
+
+export const findQuizById = (id)=>{
+    return quizzesModel.findOne({_id: id});
 }
 
 export const findAllQuiz = () => {
