@@ -33,7 +33,7 @@ const quizzesSchema = new mongoose.Schema({
     title: { type: String, default: "" },
     course: { type: String, default: "" },
     isAvailable: { type: Boolean, default: false },
-    availableDate: { type: String, default: "" },
+    availableFromDate: { type: String, default: "" },
     availableUntilDate: { type: String, default: "" },
     dueDate: { type: String, default: "" },
     points: { type: Number, default: 0 },
@@ -55,12 +55,12 @@ const quizzesSchema = new mongoose.Schema({
         allowMultipleAttempts: { type: Boolean, default: false },
     },
     queAndAns: [{
-        questionTitle: {type: String, default: ""},
+        questionTitle: { type: String, default: "" },
         questionContent: { type: String, default: "" },
         answers: [{ type: String, default: "" }],
-        questionType: {type:String, default: ""},
+        questionType: { type: String, default: "" },
         blanks: [{ type: String, default: "" }],
-        points: {type: String}
+        points: { type: String }
     }]
 }, { collection: "quizzes" });
 
